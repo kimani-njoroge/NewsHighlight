@@ -15,5 +15,19 @@
                 <li>{{ business_articles.id}}</li>
             {% endfor %}
         </ul>
+
+        <h2>Entertainment Section</h2>
+            <ul>
+                {% for tech in technology %}
+                    <li>{{ tech.id }}</li>
+                {% endfor %}
+            </ul>
+
+        <h3>Sport Section</h3>
+            <ul>
+                {% for ent in entertainment %}
+                    <li>{{ ent.id }}</li>
+                {% endfor %}
+            </ul>
     </body>
 </html>

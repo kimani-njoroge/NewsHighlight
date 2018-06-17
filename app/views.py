@@ -11,11 +11,11 @@ def index():
     '''
     business_articles = get_highlights('business')
     print(business_articles)
-    technology = get_highlights('technology')
-    entertainment = get_highlights('entertainment')
+    tech = get_highlights('technology')
+    ent = get_highlights('entertainment')
     title = 'NewsHighlights'
     # message = 'Welcome to news highlight'
-    return render_template('index.html', title=title, business=business_articles, technology=technology, entertainment=entertainment)
+    return render_template('index.html', title=title, business=business_articles, technology=tech, entertainment=ent)
 
 app.route('/sources/<int:sources_id>')
 def source(sources_id):
