@@ -27,3 +27,19 @@ def get_highlights(category):
             highlight_results = process_results(highlight_results)
 
     return highlight_results
+
+def process_results(highlight_results_list):
+    '''
+    process highlight result and transform to list of object
+    :param highlight_results_list:
+    :return:
+    '''
+    highlight_results = []
+    for highlight_cont in highlight_results_list:
+        id = highlight_cont['id']
+        name = highlight_cont['name']
+        category = highlight_cont['category']
+
+        highlight_object = Highlight(id, name, category)
+        highlight_results.append(highlight_object)
+    return highlight_results
