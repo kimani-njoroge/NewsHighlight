@@ -15,4 +15,4 @@ def index():
     # entertainment = get_highlights('entertainment')
     title = 'NewsHighlights'
     # message = 'Welcome to news highlight'
-    return render_template('index.html') #title=title, business=business_articles)
+    return render_template('index.html',title=title,) # business=business_articles)
