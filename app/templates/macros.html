@@ -1,0 +1,7 @@
+{% macro displayHighlightList(highlight_results_list) %}
+
+    {% for highlight in highlight_results_list %}
+        <li>{{ highlight.id}}</li>
+    {% endfor %}
+
+{% endmacro %}

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% import 'macros.html' as macro%}
 <html>
     <head>
         <meta charset="utf-8">
@@ -9,25 +10,39 @@
         {% endif %}
     </head>
     <body>
-         <h1>business section</h1>
+{#         <h1>business section</h1>#}
+{#        <ul>#}
+{#            {% for business_articles in business %}#}
+{#                <li>{{ business_articles.id}}</li>#}
+{#            {% endfor %}#}
+{#        </ul>#}
+{##}
+{#        <h2>Entertainment Section</h2>#}
+{#            <ul>#}
+{#                {% for tech in technology %}#}
+{#                    <li>{{ tech.id }}</li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
+{##}
+{#        <h3>Sport Section</h3>#}
+{#            <ul>#}
+{#                {% for ent in entertainment %}#}
+{#                    <li>{{ ent.id }}</li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
+            <h1>business section</h1>
         <ul>
-            {% for business_articles in business %}
-                <li>{{ business_articles.id}}</li>
-            {% endfor %}
+            {{ macro.displayHighlightList(business) }}
         </ul>
 
         <h2>Entertainment Section</h2>
             <ul>
-                {% for tech in technology %}
-                    <li>{{ tech.id }}</li>
-                {% endfor %}
+               {{ macro.displayHighlightList(technology) }}
             </ul>
 
         <h3>Sport Section</h3>
             <ul>
-                {% for ent in entertainment %}
-                    <li>{{ ent.id }}</li>
-                {% endfor %}
+                {{ macro.displayHighlightList(entertainment) }}
             </ul>
     </body>
 </html>
