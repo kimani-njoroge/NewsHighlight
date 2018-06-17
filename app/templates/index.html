@@ -9,5 +9,11 @@
         {% endif %}
     </head>
     <body>
+         <h1>business section</h1>
+        <ul>
+            {% for business_articles in business %}
+                <li>{{ business_articles.id}}</li>
+            {% endfor %}
+        </ul>
     </body>
 </html>

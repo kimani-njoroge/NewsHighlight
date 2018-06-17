@@ -10,7 +10,7 @@ def index():
     View root page function that returns the index page and its data
     '''
     business_articles = get_highlights('business')
-    # print(business_articles)
+    print(business_articles)
     # technology = get_highlights('technology')
     # entertainment = get_highlights('entertainment')
     title = 'NewsHighlights'
