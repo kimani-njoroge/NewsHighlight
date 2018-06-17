@@ -1,7 +1,12 @@
 {% macro displayHighlightList(highlight_results_list) %}
 
     {% for highlight in highlight_results_list %}
-        <li>{{ highlight.id}}</li>
+        <li>
+            <a href="/sources/{{ highlight.id }}"></a>
+            {{ highlight.id|truncate(10)}}
+
+            <a href="/sources/{{ highlight.id }}">visit</a>
+        </li>
     {% endfor %}
 
 {% endmacro %}
