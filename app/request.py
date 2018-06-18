@@ -18,7 +18,6 @@ def get_highlights(category):
     '''
 
     get_highlights_url = base_url.format(category, api_key)
-    print(get_highlights_url)
     with urllib.request.urlopen(get_highlights_url) as url:
         get_highlights_data = url.read()
         get_highlights_response = json.loads(get_highlights_data)
@@ -39,10 +38,10 @@ def process_results(highlight_results_list):
     '''
     highlight_results = []
     for highlight_cont in highlight_results_list:
-        id = highlight_cont['id']
-        name = highlight_cont['name']
-        category = highlight_cont['category']
-        url = highlight_cont['url']
+        id = highlight_cont.get('id')
+        name = highlight_cont.get('name')
+        category = highlight_cont.get('category')
+        url = highlight_cont.get('url')
 
         highlight_object = Highlight(id, name, category, url)
         highlight_results.append(highlight_object)
@@ -53,29 +52,36 @@ def get_articles(id):
     print(get_articles_url)
 
     with urllib.request.urlopen(get_articles_url) as url:
-        articles_results = json.loads(url.read())
+        get_articles_data = url.read()
+        get_articles_response = json.loads(get_articles_data)
 
+        articles_results = None
 
-        articles_object = None
-        if articles_results['articles']:
-            articles_object = process_articles(articles_results['articles'])
+        if get_articles_response['articles']:
+            articles_results = get_articles_response['articles']
+            articles_results = process_results(articles_results)
 
-    return articles_object
+    return articles_results
+
+    #     articles_results = json.loads(url.read())
+    #     articles_object = None
+    #     if articles_results['articles']:
+    #         articles_object = process_articles(articles_results['articles'])
+    #
+    # return articles_object
 
 def process_articles(articles_list):
-    articles_object = []
+    articles_results = []
 
     for article_cont in articles_list:
-        id = article_cont['id']
-        author = article_cont['author']
-        title = article_cont['title']
-        description = article_cont['description']
-        url = article_cont['url']
-        image = article_cont['urlToImage']
-        date = article_cont['publishedAt']
+        id = article_cont.get('id')
+        author = article_cont.get('author')
+        title = article_cont.get('title')
+        description = article_cont.get('description')
+        url = article_cont.get('url')
+        image = article_cont.get('urlToImage')
+        date = article_cont.get('publishedAt')
+        articles_object = Articles(id,author,title,description,url,image,date)
+        articles_results.append(articles_object)
 
-        if image:
-            articles_result = Articles(id,author,title,description,url,image,date)
-            articles_object.append(articles_result)
-
-    return articles_object
+    return articles_results
