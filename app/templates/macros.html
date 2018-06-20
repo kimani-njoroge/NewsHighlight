@@ -3,7 +3,7 @@
     {% for highlight in highlight_results_list %}
         <li>
 {#            <a href="/sources/{{ highlight.id }}"></a>#}
-            {{ highlight.id|truncate(10)}}
+            {{ highlight.id}}
 
             <a href="/templates/highlight/{{highlight.id}}">visit</a>
         </li>
@@ -15,14 +15,14 @@
 {% macro displayArticles(articles_list) %}
     {% for article in articles_list %}
             <div class="row font">
-               <div class="col-md-6" ><img src="{{article.image_url}}" style="display: inline-block; height:300px;width: 600px; ">
+               <div class="col-md-6" ><img src="{{article.image}}" style="display: inline-block; height:300px;width: 600px; ">
 
                </div>
                <div class="col-md-6 ">
                    <h3 style="color:#C04000">{{article.title}}</h3><h5>by {{article.author}}</h5>
 
                    <p>{{article.description}} <a href="{{article.url}}">Read more...</a></p>
-                   <p><b>Published on {{article.publish_time}}</b></p>
+                   <p><b>Published on {{article.publishedAt}}</b></p>
 
                </div>
            </div>
