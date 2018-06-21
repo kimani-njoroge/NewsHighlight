@@ -12,20 +12,27 @@
     </head>
     <body>
         {% block content %}
-        <h1>business section</h1>
+            <div class="row">
+                <h1>business section</h1>
             <ul>
                 {{ macro.displayHighlightList(business) }}
             </ul>
-
-        <h2>Entertainment Section</h2>
+            </div>
+            <div class="row">
+                <h2>Entertainment Section</h2>
             <ul>
                {{ macro.displayHighlightList(technology) }}
             </ul>
+            </div>
+            <div class="row">
+                    <h3>Sport Section</h3>
+                <ul>
+                    {{ macro.displayHighlightList(entertainment) }}
+                </ul>
 
-        <h3>Sport Section</h3>
-            <ul>
-                {{ macro.displayHighlightList(entertainment) }}
-            </ul>
+            </div>
         {% endblock %}
+
+
     </body>
 </html>

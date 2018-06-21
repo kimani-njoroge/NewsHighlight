@@ -1,12 +1,17 @@
 {% macro displayHighlightList(highlight_results_list) %}
 
     {% for highlight in highlight_results_list %}
-        <li>
-{#            <a href="/sources/{{ highlight.id }}"></a>#}
-            {{ highlight.id}}
+        <div class="col-md-4 panel panel-default ">
 
-            <a href="/templates/highlight/{{highlight.id}}">visit</a>
-        </li>
+
+                <a href="/sources/{{ highlight.id }}">
+                    <h1>{{ highlight.id}}</h1>
+                </a>
+
+
+                <a href="/templates/highlight/{{highlight.id}}">visit</a>
+
+        </div>
     {% endfor %}
 
 {% endmacro %}
